@@ -1,0 +1,104 @@
+# -----------------------------------------------------------------------------
+# Hydra configuration
+# This file is parsed by Hydra to manage experiment settings.
+# Default values for hyperparameters are defined here, but will be overridden
+# during hyperparameter optimization (Optuna) by trial-suggested values.
+# -----------------------------------------------------------------------------
+
+# configs/default.yaml
+hydra:
+  run:
+    dir: .               # Working directory for run outputs
+  output_subdir: null     # Disable additional subdirectory nesting
+
+defaults:
+  - model: vit_base       # Model-specific config: configs/model/vit_base.yaml
+  - _self_
+
+# ─── Cross-Validation ────────────────────────────────────────────────────────
+cv:
+  enabled: true
+  folds: 5
+
+# ─── Loss ────────────────────────────────────────────────────────────────────
+loss:
+  type: focal
+  gamma: 2
+
+# ─── Data-Loader ─────────────────────────────────────────────────────────────
+loader:
+  use_sampler: true       # WeightedRandomSampler to counter class imbalance
+
+# ─── Global Hyperparameters ─────────────────────────────────────────────────
+seed:               42
+device:             cuda
+img_size:           224
+batch_size:         8            # Depends on GPU capacity
+grad_accum:         2
+label_smoothing:    0.0          # Best from Optuna
+freeze_backbone:    false
+freeze_prefix:      "none"
+num_workers:        4
+
+# ─── Hyperparameter Optimization (Optuna) ────────────────────────────────────
+hpo:
+  enabled:        false
+  n_trials:       100
+  timeout:        172800         # 2 days
+  early_stop_patience: 10
+
+# ─── Scheduler ──────────────────────────────────────────────────────────────
+scheduler:
+  name:          cosine_with_warmup
+  warmup_steps:  103              # Best from Optuna
+  eta_min:       0
+  interval:      step
+  frequency:     1
+
+  # Legacy parameters for StepLR (currently unused)
+  step_size:     10
+  gamma:         0.1
+
+# ─── Optimizer ──────────────────────────────────────────────────────────────
+optimizer:
+  name:          adamw
+  lr:            7.3e-5          # Best from Optuna
+  backbone_lr:   7.3e-5
+  head_lr:       7.3e-5
+  weight_decay:  0.14            # Best from Optuna
+  betas:         [0.9, 0.999]
+  eps:           1e-8
+  layer_decay:   0.843           # Best from Optuna (Layer-wise LR decay)
+
+# ─── Trainer (non-HPO) ──────────────────────────────────────────────────────
+training:
+  epochs:               50
+  early_stop_patience:  15
+
+# ─── Data Augmentation ──────────────────────────────────────────────────────
+augment:
+  randaugment_nops:       2      # Best from Optuna
+  randaugment_magnitude:  12     # Best from Optuna
+  mixup_alpha:            0
+  cutmix_alpha:           0
+  mixup_prob:             0
+
+# ─── Dataset Parameters ─────────────────────────────────────────────────────
+dataset:
+  annotations: "changeme/path/to/annotations.csv"   # CSV with metadata
+  img_dir:      "changeme/path/to/images/"          # Root folder with SEM images
+  label_map:
+    green_body_defect:     0
+    hard_machining_defect: 1
+    material_defect:       2
+  # Not used, since WeightedRandomSampler is enabled
+  # minority_label:         material_defect
+  # minority_aug_factor:    1
+  # minority_loss_weight:   5.0
+  focal_gamma:            2.0
+  mag_norm:               log
+
+# ─── Logging ────────────────────────────────────────────────────────────────
+logger:
+  mlflow_experiment: "changeme/mlflow/experiment"   # MLflow experiment path
+  default_root_dir: "changeme/experiments/output"   # Root directory for logs/artifacts

@@ -1,0 +1,13 @@
+# configs/model/vit_base.yaml
+
+#_model_: vit_base_patch16_224
+_model_: vit_base_patch16_224.augreg2_in21k_ft_in1k
+#_model_: vit_base_mag
+
+
+# wird von Optuna überschrieben
+drop_path_rate: 0.1
+patch_drop_rate: 0.111
+mag_emb_dim: 64
+#use_imagenet_pretrain: true
+#custom_pretrained_path: null

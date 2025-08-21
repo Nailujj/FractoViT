@@ -1,0 +1,15 @@
+
+torch 
+torchvision
+omegaconf
+pytorch-lightning==2.2.* 
+mlflow 
+timm 
+torchmetrics 
+scikit-learn 
+thop
+optuna
+hydra-optuna-sweeper
+hydra-core
+hydra-joblib-launcher
+optuna[visualization]
