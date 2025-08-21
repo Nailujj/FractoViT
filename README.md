@@ -1,6 +1,6 @@
 # FractoVit: Vision Transformer-based Fracture Origin Classification
 
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://chatgpt.com/c/LICENSE)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 
 This repository contains the official implementation of the methods described in our paper:
 
