@@ -52,24 +52,6 @@ Code_BA/
 └── LICENSE               # Apache 2.0 license
 ```
 
----
-
-## Installation
-
-Tested with **Python 3.10+** and  **PyTorch 2.2+** .
-
-```bash
-git clone https://github.com/your-org/fractovit.git
-cd fractovit
-python -m venv .venv
-source .venv/bin/activate   # (Linux/Mac)
-.venv\Scripts\activate      # (Windows)
-
-pip install -r requirements.txt
-```
-
----
-
 ## Data
 
 **Note:** The SEM dataset used in this project is proprietary and cannot be published due to confidentiality.
