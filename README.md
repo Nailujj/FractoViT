@@ -62,7 +62,7 @@ To reproduce results on your own dataset, adapt the CSV metadata format in `data
 
 ---
 
-Results
+## Results
 
 Key findings (see paper for full details):
 
