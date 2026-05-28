@@ -4,7 +4,7 @@
 
 This repository contains the official implementation of the methods described in our paper:
 
-> **Low-Magnification SEM May Suffice: Interpretable Deep Learning for Multi-Scale Fracture-Cause Classification in Zirconia-Toughened Alumina **
+> Low-Magnification SEM May Suffice: Interpretable Deep Learning for Multi-Scale Fracture-Cause Classification in Zirconia-Toughened Alumina 
 >
 > Julian Schmid, et al. (2025)
 
