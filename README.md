@@ -4,7 +4,7 @@
 
 This repository contains the official implementation of the methods described in our paper:
 
-> **insertname**
+> **Low-Magnification SEM May Suffice: Interpretable Deep Learning for Multi-Scale Fracture-Cause Classification in Zirconia-Toughened Alumina **
 >
 > Julian Schmid, et al. (2025)
 
@@ -18,7 +18,7 @@ Understanding fracture origins is critical for quality assurance, yet manual fra
 
 This project introduces  **FractoVit** , a Vision Transformer (ViT)-based workflow for automated fracture-origin classification from scanning electron microscopy (SEM) images across extreme magnification levels.
 
-The method achieves robust performance even at low magnification, highlighting the predictive power of macro-scale fracture patterns that human fractographers often overlook.
+The method achieves robust performance, potentially even at low magnification, highlighting the predictive power of macro-scale fracture patterns that human fractographers often overlook.
 
 ---
 
@@ -67,7 +67,7 @@ To reproduce results on your own dataset, adapt the CSV metadata format in `data
 Key findings (see paper for full details):
 
 * Robust classification performance across magnifications (50×–10k×).
-* Strong F1 scores even at low magnification (see manuscript).
+* Strong F1 scores even at low magnification (pending evaluation -- see manuscript).
 * Automated workflows reduce the subjectivity and workload of expert fractography.
 
 ---
