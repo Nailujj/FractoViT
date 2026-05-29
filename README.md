@@ -76,8 +76,17 @@ Key findings (see paper for full details):
 
 If you use this code in your research, please cite:
 
-```bibtex
-CHANGEME
+```
+bibtex
+@misc{schmid2026lowmagnificationsemsufficeinterpretable,
+      title={Low-Magnification SEM May Suffice: Interpretable Deep Learning for Multi-Scale Fracture-Cause Classification in Zirconia-Toughened Alumina}, 
+      author={Julian Schmid and Pawel Astankow and Tom Vater and Julius Beck and Robert Cichon and Danny Krautz},
+      year={2026},
+      eprint={2605.29798},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2605.29798}, 
+}
 ```
 
 ---
